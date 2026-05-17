@@ -117,8 +117,4 @@ with mlflow.start_run():
         accuracy
     )
 
-    mlflow.log_artifact(
-        "models/model.pkl"
-    )
-
 print("Training completed successfully!")
