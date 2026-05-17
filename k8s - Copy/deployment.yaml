@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: churn-dashboard
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: churn-app
+
+  template:
+    metadata:
+      labels:
+        app: churn-app
+
+    spec:
+      containers:
+        - name: churn-container
+          image: churn-app:latest
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 8501
